@@ -1,0 +1,40 @@
+<html ng-app="myapp">
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+        <body>
+            <div ng-controller="myctrl">
+                <form ng-submit="submit()">
+                enter the tasks:<input type="text" ng-model="newitem">
+                <button ng-click="add()">add</button>
+                </form>
+                <ul>
+                    <li ng-repeat="item in items">
+                        {{item}}
+                        <button ng-click="edit($index)">edit</button>
+                        <button ng-click="delete()">delete</button>
+                    </li>
+                </ul>
+            </div>
+            <script>
+                var app=angular.module('myapp',[]);app.controller('myctrl',function($scope){
+                    $scope.items=["sag","manu"];
+                    $scope.newitem="";
+
+                    $scope.add=function(){
+                        $scope.items.push($scope.newitem);
+                        $scope.newitem="";
+
+                    };
+                    $scope.edit=function(index){
+                        var editedTask=prompt("edit task:",$scope.items[index]);
+                        $scope.items[index]=editedTask;
+                    };
+
+                    $scope.delete=function(index){
+                        $scope.items.splice(index,1);
+                    };
+                });
+            </script>
+        </body>
+    </head>
+</html>
