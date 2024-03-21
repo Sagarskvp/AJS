@@ -1,0 +1,22 @@
+<html ng-app="myapp">
+    <head>
+        <title>student details</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+        <body>
+            <div ng-controller="myctrl">
+                student name:<input type="text" ng-model="student.name">
+                student branch:<input type="text" ng-model="student.branch">
+                uppercase name:{{student.name | uppercase}}
+                uppercase branch:{{student.branch | uppercase}}
+            </div>
+            <script>
+                var app=angular.module('myapp',[]);app.controller('myctrl',function($scope){
+                    $scope.student={
+                        name:'sagar',
+                        branch:'ise'
+                    };
+                });
+            </script>
+        </body>
+    </head>
+</html>
