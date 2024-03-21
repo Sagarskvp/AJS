@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>login page</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+        <body>
+            <div ng-controller="myctrl">
+                <form ng-submit="submitform()">
+                   username: <input type="text" ng-model="user">
+                    password:<input type="password" ng-model="user">
+                    <button ng-click="submit">login</button>
+                </form>
+            </div>
+            <script>
+               angular.module('myapp',[]).controller('myctrl',function($scope){
+                    $scope.user={};
+                    $scope.submitform=function(){
+
+                    };
+                });
+            </script>
+        </body>
+    </head>
+</html>
